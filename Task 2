@@ -1,0 +1,198 @@
+Product.java
+
+public class Product {
+    private int id;
+    private String name;
+    private double price;
+    private String description;
+
+    public Product(int id, String name, double price, String description) {
+        (link unavailable) = id;
+        this.name = name;
+        this.price = price;
+        this.description = description;
+    }
+
+    // Getters and Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        (link unavailable) = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+}
+
+
+Order.java
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Order {
+    private int id;
+    private List<Product> products;
+    private double total;
+
+    public Order(int id) {
+        (link unavailable) = id;
+        this.products = new ArrayList<>();
+        this.total = 0;
+    }
+
+    // Getters and Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        (link unavailable) = id;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public void addProduct(Product product) {
+        products.add(product);
+        total += product.getPrice();
+    }
+}
+
+
+Customer.java
+
+public class Customer {
+    private int id;
+    private String name;
+    private String email;
+
+    public Customer(int id, String name, String email) {
+        (link unavailable) = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    // Getters and Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        (link unavailable) = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
+
+
+EcommerceSystem.java
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class EcommerceSystem {
+    private List<Product> products;
+    private List<Order> orders;
+    private List<Customer> customers;
+
+    public EcommerceSystem() {
+        this.products = new ArrayList<>();
+        this.orders = new ArrayList<>();
+        this.customers = new ArrayList<>();
+    }
+
+    // Add product
+    public void addProduct(Product product) {
+        products.add(product);
+    }
+
+    // Add order
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
+
+    // Add customer
+    public void addCustomer(Customer customer) {
+        customers.add(customer);
+    }
+
+    // Display products
+    public void displayProducts() {
+        for (Product product : products) {
+            System.out.println("Product ID: " + product.getId());
+            System.out.println("Product Name: " + product.getName());
+            System.out.println("Product Price: " + product.getPrice());
+            System.out.println("Product Description: " + product.getDescription());
+            System.out.println();
+        }
+    }
+
+    // Display orders
+    public void displayOrders() {
+        for (Order order : orders) {
+            System.out.println("Order ID: " + order.getId());
+            System.out.println("Order Total: " + order.getTotal());
+            System.out.println("Order Products:");
+            for (Product product : order.getProducts()) {
+                System.out.println("Product Name: " + product.getName());
+                System.out.println("Product Price: " + product.getPrice());
+                System.out.println();
+            }
+        }
+    }
+
+    // Display customers
+    public void displayCustomers() {
+        for (Customer customer : customers) {
+            System.out.println("Customer ID: " +
